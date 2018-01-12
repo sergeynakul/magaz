@@ -1,0 +1,15 @@
+<% flash.each do |key, value| %>
+	<%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
+
+<h2>Your Basket</h2>
+
+<ul>
+  <% @basket.basket_items.each do |i| %>
+    <li><%= i.item.title %> | <%= link_to 'Remove', i, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <% end %>
+</ul>
+Total - <%= number_to_currency(session[:basket_total]) %> </br>
+
+<%= link_to 'Destroy basket', @basket, method: :delete, data: { confirm: 'Are you sure?' } %> </br>
+<%= link_to 'Back', store_path %>

@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104072147) do
+ActiveRecord::Schema.define(version: 20180104080230) do
+
+  create_table "basket_items", force: true do |t|
+    t.integer  "item_id"
+    t.integer  "basket_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "basket_items", ["basket_id"], name: "index_basket_items_on_basket_id"
+  add_index "basket_items", ["item_id"], name: "index_basket_items_on_item_id"
+
+  create_table "baskets", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "items", force: true do |t|
     t.string   "title"
