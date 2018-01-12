@@ -11,6 +11,7 @@ class BasketsController < ApplicationController
   # GET /baskets/1.json
   def show
     session[:basket_total] = @basket.sum
+    @delivery = @basket.add_free_delivery
   end
 
   # GET /baskets/new

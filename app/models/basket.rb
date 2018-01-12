@@ -11,4 +11,12 @@ class Basket < ActiveRecord::Base
 		total
   end
 
+  def add_free_delivery
+  	if sum > 500
+  		delivery = 0
+  	else
+  		delivery = 50
+  	end
+  end
+
 end

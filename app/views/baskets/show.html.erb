@@ -10,6 +10,7 @@
   <% end %>
 </ul>
 Total - <%= number_to_currency(session[:basket_total]) %> </br>
+Delivery - <%= number_to_currency(@delivery) %> (free if total > $500.00)</br>
 
 <%= link_to 'Destroy basket', @basket, method: :delete, data: { confirm: 'Are you sure?' } %> </br>
 <%= link_to 'Back', store_path %>
